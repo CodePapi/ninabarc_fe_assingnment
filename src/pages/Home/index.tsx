@@ -2,26 +2,18 @@ import { useState } from 'react';
 import SearchedBooks from '../../components/SearchedBooks';
 import SearchInput from '../../components/SearchInput';
 import { Container, CssBaseline, Typography } from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
-import { theme } from '../../theme';
 import { useSelector } from 'react-redux';
+import { DataStateType } from '../../Types';
 
 function SearchBooks() {
   const [books, setBooks] = useState([]);
   const [search, setSearch] = useState('');
   const searchBookState = useSelector(
-    (state: {
-      searchAllBooks: {
-        isLoading: boolean;
-        isSuccessful: boolean;
-        error: any;
-        data: { docs: any };
-      };
-    }) => state.searchAllBooks
+    (state: { searchAllBooks: DataStateType }) => state.searchAllBooks
   );
 
   return (
-    <ThemeProvider theme={theme}>
+    <div>
       <CssBaseline />
       <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
         <Typography variant="h4" component="h1" gutterBottom>
@@ -39,7 +31,7 @@ function SearchBooks() {
           error={searchBookState.error}
         />
       </Container>
-    </ThemeProvider>
+    </div>
   );
 }
 

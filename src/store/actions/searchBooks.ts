@@ -22,12 +22,13 @@ export const searchBooksCleanup = () => ({
 
 export const searchBooks = (payload: {
     query: string;
+    page: number;
 }) => async (dispatch: (arg0: { type: string; payload?: any; }) => void)=> {
 
   try {
     dispatch(searchBooksStart());
     const requestObj = {
-      path: `?q=${payload.query}`,
+      path: `?q=${payload.query}&page=${payload.page}`,
       method: "GET",
     }
     const  data  = await AxiosCall(requestObj);
