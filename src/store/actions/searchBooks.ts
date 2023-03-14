@@ -28,7 +28,7 @@ export const searchBooks = (payload: {
   try {
     dispatch(searchBooksStart());
     const requestObj = {
-      path: `?q=${payload.query}&page=${payload.page}`,
+      path: `/search.json?q=${payload.query}&page=${payload.page}`,
       method: "GET",
     }
     const  data  = await AxiosCall(requestObj);

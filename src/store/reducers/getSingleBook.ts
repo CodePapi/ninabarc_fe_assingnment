@@ -6,7 +6,7 @@ const getSingleBook = (
   action: { type: any; payload: any }
 ) => {
   switch (action.type) {
-    case types.GET_SINGLE_BOOKS_SUCCESS:
+    case types.GET_SINGLE_BOOKS_START:
       return {
         ...state,
         isLoading: true,

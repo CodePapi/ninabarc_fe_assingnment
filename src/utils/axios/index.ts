@@ -1,5 +1,5 @@
 import Axios from 'axios';
-let baseURL: string = 'https://openlibrary.org/search.json';
+let baseURL: string = 'https://openlibrary.org';
 
 const AxiosCall = async (requestObj: {
   path: string;

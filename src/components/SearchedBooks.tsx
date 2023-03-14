@@ -10,6 +10,7 @@ type Books = {
   coverImage: string;
   key: string;
   cover_i: any;
+  seed:string[];
 };
 
 function SearchedBooks({
@@ -40,6 +41,7 @@ function SearchedBooks({
             <BooksCard
               title={book.title}
               author_name={book.author_name}
+              id={book.seed[0]}
               coverImage={
                 book['cover_i']
                   ? `https://covers.openlibrary.org/b/id/${book['cover_i']}-M.jpg`
