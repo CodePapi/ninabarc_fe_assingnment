@@ -1,50 +1,34 @@
+// Modules
 import { Stack, TextField, Button } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { searchBooks, searchBooksCleanup } from '../store/actions/searchBooks';
-import PaginationTor from './Pagination';
 
-function SearchInput({
-  value,
-  onChange,
-  setBooks,
-  loading,
-}: {
-  value: string;
-  onChange: (value: string) => void;
-  setBooks: (books: []) => void;
-  loading: boolean;
-}) {
-  const dispatch = useDispatch();
-  const searchBookState = useSelector((state: any) => state.searchAllBooks);
+// Hooks
+import useSearchBooks from '../../hooks/useSearchBooks';
+
+// Components
+import PaginationTor from '../../components/Pagination';
+
+function SearchInput({}: {}) {
+  const { searchAllBooks, loading, books, success } = useSearchBooks();
   const [count, setCount] = useState(0);
   const [page, setPage] = useState(1);
+  const [search, setSearch] = useState('');
+
+  // functions
   const handleSearch = () => {
-    dispatch(
-      searchBooks({
-        query: value,
-        page,
-      }) as any
-    );
+    searchAllBooks(search, page);
   };
-
-  useEffect(() => {
-    if (searchBookState.isSuccessful) {
-      setBooks(searchBookState.data.docs);
-      setCount(Math.ceil(searchBookState.data.numFound / 100));
-      dispatch(searchBooksCleanup());
-    }
-  }, [searchBookState]);
-
   const handleChange = (event: React.ChangeEvent<unknown>, pageNum: number) => {
     setPage(pageNum);
-    dispatch(
-      searchBooks({
-        query: value,
-        page: pageNum,
-      }) as any
-    );
+    searchAllBooks(search, pageNum);
   };
+
+  // hooks
+  useEffect(() => {
+    if (success) {
+      setCount(Math.ceil(books.numFound / 100));
+    }
+  }, [books]);
 
   return (
     <section className="sticky top-0 z-50 bg-white shadow-md mb-10">
@@ -56,8 +40,8 @@ function SearchInput({
             label={`Enter Search`}
             type="search"
             variant="outlined"
-            value={value}
-            onChange={(e) => onChange(e.target.value)}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
           <Button disabled={loading} variant="contained" onClick={handleSearch}>
             Search

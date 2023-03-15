@@ -1,11 +1,4 @@
 import { Button } from '@mui/material';
-import {
-  Key,
-  ReactElement,
-  JSXElementConstructor,
-  ReactFragment,
-  ReactPortal,
-} from 'react';
 import { useFavorites } from '../hooks/useFavourite';
 
 function Favorites() {
@@ -16,25 +9,10 @@ function Favorites() {
       {favorites.map(
         (book: {
           coverImage: string;
-          id: Key | null | undefined;
-          title:
-            | string
-            | number
-            | boolean
-            | ReactElement<any, string | JSXElementConstructor<any>>
-            | ReactFragment
-            | ReactPortal
-            | null
-            | undefined;
-          author_name:
-            | string
-            | number
-            | boolean
-            | ReactElement<any, string | JSXElementConstructor<any>>
-            | ReactFragment
-            | ReactPortal
-            | null
-            | undefined;
+          id: string;
+          title: string;
+
+          author_name: string;
         }) => (
           <div
             className="flex flex-col items-center justify-center"

@@ -2,16 +2,15 @@ import { Button, Card, CardActions, CardHeader } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Link } from 'react-router-dom';
 import { useFavorites } from '../hooks/useFavourite';
+import { SearchedBooksType } from '../Types';
 
-type Book = {
-  title: string;
-  author_name: string[];
-  coverImage: string;
-  key?: string;
-  id: string;
-};
-
-function BooksCard({ title, author_name, coverImage, key, id }: Book) {
+function BooksCard({
+  title,
+  author_name,
+  coverImage,
+  key,
+  id,
+}: SearchedBooksType) {
   const { addBookToFavs } = useFavorites();
   return (
     <Card sx={{ maxWidth: 400, height: 250 }}>
