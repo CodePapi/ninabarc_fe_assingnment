@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import SingleBookDetails from './pages/SingleBookDetails';
 import logo from './logo.svg';
 import './App.css';
+import Drawer from './components/Drawer';
 
 
 
@@ -13,6 +14,7 @@ import './App.css';
 function App() {
   return (
     <Router>
+      <Drawer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/books/:bookId" element={<SingleBookDetails />} />

@@ -11,3 +11,8 @@ export const searchBooks = {
     data: null,
     error: null
   };
+
+  export const booksToFav = {
+    data : []
+  }
+
