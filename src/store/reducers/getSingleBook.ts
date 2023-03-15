@@ -1,9 +1,10 @@
 import * as types from '../action-types';
 import { getSingleBook as initialState } from '../initialStates';
+import { REDUX_ACTION_TYPE, SingleBookDetailsType } from '../../Types';
 
 const getSingleBook = (
   state = initialState,
-  action: { type: any; payload: any }
+  action: { type: REDUX_ACTION_TYPE; payload: SingleBookDetailsType }
 ) => {
   switch (action.type) {
     case types.GET_SINGLE_BOOKS_START:

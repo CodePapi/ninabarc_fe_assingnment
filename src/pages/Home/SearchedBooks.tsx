@@ -1,10 +1,10 @@
 import { Grid } from '@mui/material';
 
 // Components
-import BooksCard from '../../components/BooksCard';
-import PageLoader from '../../components/PageLoader';
-import ErrorOccurred from '../../components/ErrorOccured';
-import NoBookFound from '../../components/NoBookFound';
+import BooksCard from './BooksCard';
+import PageLoader from '../../components/Utilities/PageLoader';
+import ErrorOccurred from '../../components/Utilities/ErrorOccured';
+import NoBookFound from '../../components/Utilities/NoBookFound';
 import useSearchBooks from '../../hooks/useSearchBooks';
 
 // Types
@@ -24,7 +24,6 @@ function SearchedBooks({}: {}) {
   if (!loading  && books.docs.length === 0) {
     return <NoBookFound />;
   }
-  console.log('books', books.docs);
   return (
     <Grid container spacing={4}>
       {books.docs.map((book: SearchedBooksType) => (

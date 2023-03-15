@@ -1,12 +1,8 @@
 import Axios from 'axios';
-let baseURL: string = 'https://openlibrary.org';
+import {AxiosRequestConfigType} from '../../Types';
+const baseURL: string = 'https://openlibrary.org';
 
-const AxiosCall = async (requestObj: {
-  path: string;
-  method: string;
-  data?: any;
-  contentType?: string;
-}) => {
+const AxiosCall = async (requestObj: AxiosRequestConfigType) => {
   const { path, method, data, contentType } = requestObj;
 
   let headers = {

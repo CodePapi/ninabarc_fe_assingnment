@@ -4,11 +4,12 @@ import {
   getSingleBook,
   getSingleBookCleanup,
 } from '../store/actions/getSingleBook';
+import { DataStateType } from '../Types';
 
 const useGetSingleBook = () => {
   const dispatch = useDispatch();
   const { data, isSuccessful, error, isLoading } = useSelector(
-    (state: any) => state.getSingleBook
+    (state: { getSingleBook: DataStateType }) => state.getSingleBook
   );
 
   const getBook = (bookId: string) => {

@@ -1,8 +1,8 @@
 import { Button, Card, CardActions, CardHeader } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Link } from 'react-router-dom';
-import { useFavorites } from '../hooks/useFavourite';
-import { SearchedBooksType } from '../Types';
+import { useFavorites } from '../../hooks/useFavourite';
+import { SearchedBooksType } from '../../Types';
 
 function BooksCard({
   title,
@@ -26,7 +26,11 @@ function BooksCard({
         </Link>
         <Button
           onClick={() =>
-            addBookToFavs({ title, author_name, coverImage, key, id })
+            addBookToFavs({
+              title, author_name, coverImage, key, id,
+              cover_i: undefined,
+              seed: []
+            })
           }
           size="small"
         >

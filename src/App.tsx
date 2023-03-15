@@ -1,20 +1,12 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import SingleBookDetails from './pages/SingleBookDetails';
-import logo from './logo.svg';
-import './App.css';
-import Drawer from './components/Drawer';
-
-
-
-
-
+import NavBar from './components/Layouts/NavBar';
 
 function App() {
   return (
     <Router>
-      <Drawer />
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/books/:bookId" element={<SingleBookDetails />} />

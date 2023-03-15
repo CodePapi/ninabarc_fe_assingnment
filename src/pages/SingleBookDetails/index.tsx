@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import PageLoader from '../../components/PageLoader';
-import ErrorOccurred from '../../components/ErrorOccured';
+import PageLoader from '../../components/Utilities/PageLoader';
+import ErrorOccurred from '../../components/Utilities/ErrorOccured';
 import useGetSingleBook from '../../hooks/useGetSingBook';
 
 function SingleBookDetails() {

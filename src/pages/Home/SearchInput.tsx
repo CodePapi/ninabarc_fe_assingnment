@@ -31,7 +31,7 @@ function SearchInput({}: {}) {
   }, [books]);
 
   return (
-    <section className="sticky top-0 z-50 bg-white shadow-md mb-10">
+    <section className="sticky top-10 z-40 bg-white shadow-md mb-10">
       <div className="container mx-auto px-6 py-3 ">
         <Stack spacing={2} sx={{ mb: 4 }}>
           <TextField

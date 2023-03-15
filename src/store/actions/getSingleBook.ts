@@ -21,8 +21,7 @@ export const getSingleBookCleanup = () => ({
 });
 
 export const getSingleBook =
-  (payload: { bookId: string }) =>
-  async (dispatch: (arg0: { type: string; payload?: any }) => void) => {
+  (payload: { bookId: string }) => async (dispatch: (arg0: {}) => void) => {
     try {
       dispatch(getSingleBookStart());
       const requestObj = {
@@ -30,11 +29,9 @@ export const getSingleBook =
         method: 'GET',
       };
       const data = await AxiosCall(requestObj);
-      console.log({ datattt: data });
       dispatch(getSingleBookSuccess(data));
     } catch (err) {
       const error = ErrorHandler(err);
-      console.log({ error: error });
       dispatch(getSingleBookFail(error));
     }
   };

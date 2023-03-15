@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import { useFavorites } from '../hooks/useFavourite';
+import { useFavorites } from '../../hooks/useFavourite';
 
 function Favorites() {
   const { favorites, removeFromFavs } = useFavorites();
