@@ -1,5 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addBookToFav, removeBookFromFav } from '../store/actions/favBooks';
+import {
+  addBookToFav,
+  removeBookFromFav,
+  clearFavBooks,
+} from '../store/actions/favBooks';
 import { SearchedBooksType } from '../Types';
 
 export const useFavorites = () => {
@@ -13,6 +17,9 @@ export const useFavorites = () => {
   const removeFromFavs = (id: string) => {
     dispatch(removeBookFromFav(id));
   };
-  const favorites = favoritesState?.data??[];
-  return { addBookToFavs, removeFromFavs, favorites };
+  const clearFavs = () => {
+    dispatch(clearFavBooks());
+  };
+  const favorites = favoritesState?.data ?? [];
+  return { addBookToFavs, removeFromFavs, clearFavs, favorites };
 };

@@ -14,3 +14,9 @@ export const removeBookFromFav = (id: string) => {
     payload: id,
   };
 };
+
+export const clearFavBooks = () => {
+  return {
+    type: types.CLEAR_FAV_BOOKS,
+  };
+};

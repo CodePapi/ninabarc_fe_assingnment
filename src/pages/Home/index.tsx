@@ -1,8 +1,6 @@
 import { Container, CssBaseline } from '@mui/material';
-
-// Components
-import SearchedBooks from './SearchedBooks';
-import SearchInput from './SearchInput';
+import SearchedBooks from '../../components/SearchedBooks';
+import SearchInput from '../../components/SearchInput';
 
 function SearchBooks() {
   return (

@@ -4,17 +4,27 @@ import { SearchedBooksType, REDUX_ACTION_TYPE } from '../../Types';
 
 const favBooks = (
   state = initialState,
-  action: { type: REDUX_ACTION_TYPE; payload: string }
+  action: { type: REDUX_ACTION_TYPE; payload: any }
 ) => {
   switch (action.type) {
     case types.ADD_BOOK_TO_FAV:
-      return { data: [...state.data, action.payload] };
+      const isDuplicate = state.data.some(
+        (book: SearchedBooksType) => book.id === action.payload.id
+      );
+      if (isDuplicate) {
+        return state;
+      }
+      return { data: [action.payload, ...state.data] };
+
     case types.REMOVE_BOOK_FROM_FAV:
       return {
         data: state.data.filter(
           (book: SearchedBooksType) => book.id !== action.payload
         ),
       };
+    case types.CLEAR_FAV_BOOKS:
+      return { data: [] };
+
     default:
       return state;
   }

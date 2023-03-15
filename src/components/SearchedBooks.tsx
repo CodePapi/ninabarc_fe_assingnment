@@ -1,17 +1,17 @@
 import { Grid } from '@mui/material';
 
 // Components
-import BooksCard from './BooksCard';
-import PageLoader from '../../components/Utilities/PageLoader';
-import ErrorOccurred from '../../components/Utilities/ErrorOccured';
-import NoBookFound from '../../components/Utilities/NoBookFound';
-import useSearchBooks from '../../hooks/useSearchBooks';
+import BooksCard from './Utilities/BooksCard';
+import PageLoader from './Utilities/PageLoader';
+import ErrorOccurred from './Utilities/ErrorOccured';
+import NoBookFound from './Utilities/NoBookFound';
+import useSearchBooks from '../hooks/useSearchBooks';
 
 // Types
-import { SearchedBooksType } from '../../Types';
+import { SearchedBooksType } from '../Types';
 
 function SearchedBooks({}: {}) {
-  const { loading, books, error, success } = useSearchBooks();
+  const { loading, books, error } = useSearchBooks();
 
   if (loading) {
     return <PageLoader />;

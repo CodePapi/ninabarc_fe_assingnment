@@ -12,7 +12,7 @@ const composeEnhancers: typeof compose =
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['getProfile'],
+  whitelist: ['addBookToFav', 'searchAllBooks', "lastSearchedBook"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

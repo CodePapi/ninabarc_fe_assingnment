@@ -16,3 +16,6 @@ export const searchBooks = {
     data : []
   }
 
+  export const lastSearchedBooks = {
+    data : ""
+  }

@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import {AxiosRequestConfigType} from '../../Types';
+import { AxiosRequestConfigType } from '../../Types';
 const baseURL: string = 'https://openlibrary.org';
 
 const AxiosCall = async (requestObj: AxiosRequestConfigType) => {

@@ -1,9 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import {
-  getSingleBook,
-  getSingleBookCleanup,
-} from '../store/actions/getSingleBook';
+import { getSingleBook } from '../store/actions/getSingleBook';
 import { DataStateType } from '../Types';
 
 const useGetSingleBook = () => {
@@ -15,10 +11,6 @@ const useGetSingleBook = () => {
   const getBook = (bookId: string) => {
     dispatch(getSingleBook({ bookId }) as any);
   };
-
-  useEffect(() => {
-    dispatch(getSingleBookCleanup());
-  }, [data]);
 
   return {
     book: data,

@@ -3,20 +3,23 @@ import { Stack, TextField, Button } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 // Hooks
-import useSearchBooks from '../../hooks/useSearchBooks';
+import useSearchBooks from '../hooks/useSearchBooks';
+import { useLastSearchBook } from '../hooks/useLastSearchBook';
 
 // Components
-import PaginationTor from '../../components/Pagination';
+import PaginationTor from './Pagination';
 
 function SearchInput({}: {}) {
   const { searchAllBooks, loading, books, success } = useSearchBooks();
+  const { lastSearched, addBookToLastSearcheds } = useLastSearchBook();
   const [count, setCount] = useState(0);
   const [page, setPage] = useState(1);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState('Sample book');
 
   // functions
   const handleSearch = () => {
     searchAllBooks(search, page);
+    addBookToLastSearcheds(search);
   };
   const handleChange = (event: React.ChangeEvent<unknown>, pageNum: number) => {
     setPage(pageNum);
@@ -24,6 +27,12 @@ function SearchInput({}: {}) {
   };
 
   // hooks
+  useEffect(() => {
+    if (lastSearched.length > 0) {
+      setSearch(lastSearched);
+    }
+    searchAllBooks(search, page);
+  }, []);
   useEffect(() => {
     if (success) {
       setCount(Math.ceil(books.numFound / 100));
