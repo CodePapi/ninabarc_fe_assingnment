@@ -13,6 +13,6 @@ export const useFavorites = () => {
   const removeFromFavs = (id: string) => {
     dispatch(removeBookFromFav(id));
   };
-  const favorites = favoritesState.data;
+  const favorites = favoritesState?.data??[];
   return { addBookToFavs, removeFromFavs, favorites };
 };

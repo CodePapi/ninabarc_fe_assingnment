@@ -1,13 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { PersistGate } from 'redux-persist/integration/react';
+
+// React
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
+
+// MUI
 import { ThemeProvider } from '@mui/material/styles';
+import { theme } from './theme';
+
+// Redux
 import { store, persistor } from '../src/store';
 import { Provider } from 'react-redux';
-import { theme } from './theme';
+import { PersistGate } from 'redux-persist/integration/react';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

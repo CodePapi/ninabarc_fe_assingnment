@@ -45,24 +45,23 @@ export default function TemporaryDrawer() {
   );
 
   return (
-    //tailwindcss responsive navbar
-    <section className='sticky top-0 z-50 bg-white shadow-md mb-10'>
-    <div className="flex flex-row items-center justify-between w-full h-16 bg-gray-900">
-      <div className="flex flex-row items-center justify-end w-1/2 h-full">
-        <Button onClick={handleHome}>Home</Button>
-        <Button onClick={toggleDrawer('right', true)}>
-          Favs {favorites.length}{' '}
-          <FavoriteBorderIcon fontSize="small" color="warning" />
-        </Button>
-        <Drawer
-          anchor={'right'}
-          open={state['right']}
-          onClose={toggleDrawer('right', false)}
-        >
-          {list('right')}
-        </Drawer>
+    <section className="sticky top-0 z-50 bg-white shadow-md mb-10">
+      <div className="flex flex-row items-center justify-between w-full h-16 bg-gray-900">
+        <div className="flex flex-row items-center justify-end w-1/2 h-full">
+          <Button onClick={handleHome}>Home</Button>
+          <Button onClick={toggleDrawer('right', true)}>
+            Favs {favorites.length}{' '}
+            <FavoriteBorderIcon fontSize="small" color="warning" />
+          </Button>
+          <Drawer
+            anchor={'right'}
+            open={state['right']}
+            onClose={toggleDrawer('right', false)}
+          >
+            {list('right')}
+          </Drawer>
+        </div>
       </div>
-    </div>
     </section>
   );
 }

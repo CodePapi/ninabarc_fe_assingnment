@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { searchBooks, searchBooksCleanup } from '../store/actions/searchBooks';
 import { useEffect } from 'react';
 import { DataStateType } from '../Types';
+
+
 const useSearchBooks = () => {
   const dispatch = useDispatch();
 
@@ -22,9 +24,9 @@ const useSearchBooks = () => {
     books: data ?? {
       docs: [],
     },
-    success: isSuccessful,
+    success: isSuccessful??false,
     error,
-    loading: isLoading,
+    loading: isLoading??false,
     searchAllBooks,
   };
 };

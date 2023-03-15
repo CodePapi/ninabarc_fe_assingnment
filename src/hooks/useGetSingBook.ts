@@ -22,9 +22,9 @@ const useGetSingleBook = () => {
 
   return {
     book: data,
-    success: isSuccessful,
+    success: isSuccessful ?? false,
     error,
-    loading: isLoading,
+    loading: isLoading ?? false,
     getBook,
   };
 };
