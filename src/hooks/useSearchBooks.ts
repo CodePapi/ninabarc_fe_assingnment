@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { searchBooks, searchBooksCleanup } from '../store/actions/searchBooks';
 import { useEffect } from 'react';
-import { DataStateType } from '../Types';
+import { DataStateType } from '../Types.d';
 
 export const useSearchBooks = () => {
   const dispatch = useDispatch();

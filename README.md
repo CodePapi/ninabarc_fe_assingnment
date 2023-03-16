@@ -1,46 +1,52 @@
-# Getting Started with Create React App
+## instructions: The interviewee should provide a GitHub repository containing the code for the application, along with instructions for running the application locally and running the tests. The repository should also include a README.md file with a brief overview of the application and any additional notes or comments the interviewee would like to provide.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## project: Build a simple web application that allows users to search for books using the Open Library API and display the search results. Users should be able to select a book from the search results to view more details about the book.
 
-## Available Scripts
+## requirements:
 
-In the project directory, you can run:
+- Use React and Redux to build the application.
+- Use the Open Library API to search for books. The API documentation can be found here: https://openlibrary.org/developers/api.
+- Display the search results as a list of books with their titles, authors and cover images.
+- When a user clicks on a book from the search results, display more details about the book, including its title, author, cover image, publication date, and a brief description.
+- Write unit tests for your components using Jest.
 
-### `yarn start`
+## instructions for running the application locally:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Clone the repository
+- Run `npm install` or `yarn` to install the dependencies
+- Run `npm start` or `yarn run start` to start the application
+- Open http://localhost:3000 to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## instructions for running the tests:
 
-### `yarn test`
+- Run `npm test` or `yarn run test` to run the tests
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## notes:
 
-### `yarn build`
+- The application is built using React and Redux.
+- The Application uses the Redux Thunk middleware to handle asynchronous actions and redux-persist to persist the store in the local storage.
+- The application uses the react-router-dom package to handle routing.
+- The application uses Tailwind CSS for styling and MUI for components.
+- The application uses the Open Library API to search for books.
+- The application displays the search results as a list of books with their titles, authors and cover images.
+- When a user clicks on a book from the search results, the application displays more details about the book, including its title, author, cover image, publication date, and a brief description in a new page.
+- The application has unit tests for its components using Jest.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Considerations:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- The code is well-organized and maintainable.
+- The application is responsive and easy to use.
+- The application handles errors gracefully and display meaningful error messages to the user.
+- The unit tests covers all important functionality.
+- Users to can add books to a "favorites" list
+- Users can remove books from the "favorites" list
+- Users can view the "favorites" list in the side drawer
+- pagination to the search results
+- TailwindCSS was used to style the application
+- Loader was added to the application
+- Data for favorites is persisted using redux-persist
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## No deep consideration was given to the following:
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- The types of some data returned from the API are not well defined and that cause the usage of the any type in several places.
+- I did not consider the PR review process and the code review process because I did not want to give it so much attention considering it is just a test.

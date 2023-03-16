@@ -1,5 +1,6 @@
 import { renderHook } from '@testing-library/react';
 import { useFavorites } from './';
+import { MOCKED_BOOKS } from '../constants';
 
 const mockDispatch = jest.fn();
 const mockUseSelector = jest.fn();
@@ -10,15 +11,6 @@ jest.mock('react-redux', () => ({
 jest.mock('axios', () => ({
   get: jest.fn(() => Promise.resolve({ data: {} })),
 }));
-const book = {
-  id: '1',
-  author_name: ['author'],
-  title: 'title',
-  coverImage: 'coverImage',
-  key: 'key',
-  cover_i: 'cover_i',
-  seed: ['seed'],
-};
 
 describe('useFavorites', () => {
   it('should return favorites', () => {
@@ -28,10 +20,24 @@ describe('useFavorites', () => {
 
   it('should add book to favorites', () => {
     const { result: MockResult } = renderHook(() => useFavorites());
-    MockResult.current.addBookToFavs(book);
+    MockResult.current.addBookToFavs({
+      id: MOCKED_BOOKS.id,
+      author_name: MOCKED_BOOKS.author_name,
+      title: MOCKED_BOOKS.title,
+      coverImage: MOCKED_BOOKS.coverImage,
+      cover_i: MOCKED_BOOKS.coverImage,
+      seed: MOCKED_BOOKS.seed,
+    });
     expect(mockDispatch).toHaveBeenCalledWith({
       type: 'ADD_BOOK_TO_FAV',
-      payload: { ...book },
+      payload: {
+        id: MOCKED_BOOKS.id,
+        author_name: MOCKED_BOOKS.author_name,
+        title: MOCKED_BOOKS.title,
+        coverImage: MOCKED_BOOKS.coverImage,
+        cover_i: MOCKED_BOOKS.coverImage,
+        seed: MOCKED_BOOKS.seed,
+      },
     });
   });
 

@@ -1,6 +1,7 @@
 import BooksCard from './BooksCard';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import '@testing-library/jest-dom'
 
 jest.mock('react-redux', () => ({
   useSelector: jest.fn(),

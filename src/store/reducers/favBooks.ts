@@ -1,6 +1,6 @@
 import * as types from '../action-types';
 import { booksToFav as initialState } from '../initialStates';
-import { SearchedBooksType, REDUX_ACTION_TYPE } from '../../Types';
+import { SearchedBooksType, REDUX_ACTION_TYPE } from '../../Types.d';
 
 const favBooks = (
   state = initialState,

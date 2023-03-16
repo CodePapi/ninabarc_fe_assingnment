@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { getSingleBook } from '../store/actions/getSingleBook';
-import { DataStateType } from '../Types';
+import { DataStateType } from '../Types.d';
 
 export const useGetSingleBook = () => {
   const dispatch = useDispatch();

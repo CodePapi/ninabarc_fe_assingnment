@@ -1,6 +1,9 @@
 import SingleBookDetails from './SingleBook';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { MOCKED_BOOKS } from '../constants';
+import '@testing-library/jest-dom'
+
 
 jest.mock('react-redux', () => ({
   useSelector: jest.fn(),
@@ -12,7 +15,6 @@ jest.mock('axios', () => ({
 }));
 const MockLocation = {
   pathname: '/book/1234567',
-  search: '',
   state: {
     coverImage: 'https://covers.openlibrary.org/b/id/1234567-M.jpg',
   },
@@ -25,28 +27,12 @@ jest.mock('../hooks', () => {
   return {
     useFavorites: () => {
       return {
-        favorites: [
-          {
-            title: 'Favorite Title1',
-            author_name: ['Some Author'],
-            coverImage: 'https://covers.openlibrary.org/b/id/1234567-M.jpg',
-          },
-        ],
+        favorites: [MOCKED_BOOKS],
       };
     },
     useGetSingleBook: () => {
       return {
-        book: {
-          title: 'Some Title',
-          by_statement: 'by Samuel Egbajie',
-          description: {
-            value: 'This is a book about something',
-          },
-          publish_date: '2021',
-          author_name: ['Some Author'],
-          coverImage: 'https://covers.openlibrary.org/b/id/1234567-M.jpg',
-          id: '1234567',
-        },
+        book: MOCKED_BOOKS,
         loading: false,
         error: false,
       };
@@ -66,9 +52,8 @@ describe('SingleBookDetails', () => {
       'https://covers.openlibrary.org/b/id/1234567-M.jpg'
     );
     expect(screen.getByRole('img')).toHaveAttribute('alt', 'book cover');
-    // expect(screen.getByText(/View/i)).toBeInTheDocument();
   });
-  it('author name', () => {
+  it('get author name', () => {
     render(
       <Router>
         <SingleBookDetails />
@@ -76,16 +61,16 @@ describe('SingleBookDetails', () => {
     );
     expect(screen.getByText(/by Samuel Egbajie/i)).toBeInTheDocument();
   });
-  it('title', () => {
+  it('get book title', () => {
     render(
       <Router>
         <SingleBookDetails />
       </Router>
     );
-    expect(screen.getByText(/Some Title/i)).toBeInTheDocument();
+    expect(screen.getByText(/Favorite Title1/i)).toBeInTheDocument();
   });
 
-  it('description', () => {
+  it('get description', () => {
     render(
       <Router>
         <SingleBookDetails />
@@ -96,7 +81,7 @@ describe('SingleBookDetails', () => {
     ).toBeInTheDocument();
   });
 
-  it('publish date', () => {
+  it('get publish date', () => {
     render(
       <Router>
         <SingleBookDetails />

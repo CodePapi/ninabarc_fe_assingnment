@@ -4,7 +4,7 @@ import {
   removeBookFromFav,
   clearFavBooks,
 } from '../store/actions/favBooks';
-import { SearchedBooksType } from '../Types';
+import { SearchedBooksType } from '../Types.d';
 
 export const useFavorites = () => {
   const dispatch = useDispatch();

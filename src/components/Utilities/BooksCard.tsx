@@ -3,7 +3,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { DeleteTwoTone } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { useFavorites } from '../../hooks';
-import { SearchedBooksType } from '../../Types';
+import { SearchedBooksType } from '../../Types.d';
 import { truncate } from '../../utils/helpers';
 
 function BooksCard({

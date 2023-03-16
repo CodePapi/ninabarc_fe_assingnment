@@ -1,4 +1,4 @@
-import { REDUX_ACTION_TYPE } from '../../Types';
+import { REDUX_ACTION_TYPE } from '../../Types.d';
 import * as types from '../action-types';
 import { lastSearchedBooks as initialState } from '../initialStates';
 

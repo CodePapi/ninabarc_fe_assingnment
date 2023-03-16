@@ -1,7 +1,7 @@
 import * as types from '../action-types';
 import AxiosCall from '../../utils/axios';
 import ErrorHandler from '../../utils/error-handler';
-import { SearchBooksPayloadtype } from '../../Types';
+import { SearchBooksPayloadtype } from '../../Types.d';
 
 export const searchBooksStart = () => ({
   type: types.SEARCH_BOOKS_START,
@@ -22,6 +22,7 @@ export const searchBooksCleanup = () => ({
 });
 
 export const searchBooks =
+  // eslint-disable-next-line
   (payload: SearchBooksPayloadtype) => async (dispatch: ({}) => void) => {
     try {
       dispatch(searchBooksStart());

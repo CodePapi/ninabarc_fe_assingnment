@@ -4,7 +4,7 @@ import PageLoader from './Utilities/PageLoader';
 import ErrorOccurred from './Utilities/ErrorOccured';
 import NoBookFound from './Utilities/NoBookFound';
 import { useSearchBooks } from '../hooks';
-import { SearchedBooksType } from '../Types';
+import { SearchedBooksType } from '../Types.d';
 
 function SearchedBooks() {
   const { loading, books, error } = useSearchBooks();

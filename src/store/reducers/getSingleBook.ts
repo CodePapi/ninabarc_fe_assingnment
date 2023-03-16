@@ -1,6 +1,6 @@
 import * as types from '../action-types';
 import { getSingleBook as initialState } from '../initialStates';
-import { REDUX_ACTION_TYPE, SingleBookDetailsType } from '../../Types';
+import { REDUX_ACTION_TYPE, SingleBookDetailsType } from '../../Types.d';
 
 const getSingleBook = (
   state = initialState,

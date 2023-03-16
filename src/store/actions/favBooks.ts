@@ -1,5 +1,5 @@
 import * as types from '../action-types';
-import { SingleBookDetailsType } from '../../Types';
+import { SingleBookDetailsType } from '../../Types.d';
 
 export const addBookToFav = (book: SingleBookDetailsType) => {
   return {

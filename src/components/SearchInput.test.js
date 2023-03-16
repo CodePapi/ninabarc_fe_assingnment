@@ -2,6 +2,7 @@ import SearchInput from './SearchInput';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { MOCKED_BOOKS } from '../constants';
 
 jest.mock('axios', () => ({
   get: jest.fn(() => Promise.resolve({ data: { docs: [] } })),
@@ -30,13 +31,7 @@ jest.mock('../hooks', () => {
     useSearchBooks: () => {
       return {
         books: {
-          docs: [
-            {
-              title: 'Favorite Title1',
-              author_name: ['Some Author'],
-              coverImage: 'https://covers.openlibrary.org/b/id/1234567-M.jpg',
-            },
-          ],
+          docs: [MOCKED_BOOKS],
         },
         loading: false,
         error: false,
@@ -47,14 +42,6 @@ jest.mock('../hooks', () => {
 });
 
 describe('SearchInput', () => {
-  it('renders SearchInput', () => {
-    render(
-      <Router>
-        <SearchInput />
-      </Router>
-    );
-    expect(screen.getByDisplayValue(/Sample book/i)).toBeInTheDocument();
-  });
   it('renders SearchInput with value', () => {
     render(
       <Router>

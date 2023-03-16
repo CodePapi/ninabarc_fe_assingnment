@@ -1,6 +1,6 @@
 import * as types from '../action-types';
 import { searchBooks as initialState } from '../initialStates';
-import { REDUX_ACTION_TYPE } from '../../Types';
+import { REDUX_ACTION_TYPE } from '../../Types.d';
 
 const SearchBooks = (
   state = initialState,

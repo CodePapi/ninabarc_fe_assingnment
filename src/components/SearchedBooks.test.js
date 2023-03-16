@@ -1,6 +1,8 @@
 import SearchedBooks from './SearchedBooks';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { MOCKED_BOOKS } from '../constants';
+import '@testing-library/jest-dom'
 
 jest.mock('react-redux', () => ({
   useSelector: jest.fn(),
@@ -12,16 +14,7 @@ jest.mock('axios', () => ({
 let MockedSearchedBooks = () => {
   return {
     books: {
-      docs: [
-        {
-          title: 'Favorite Title1',
-          author_name: ['Some Author'],
-          coverImage: 'https://covers.openlibrary.org/b/id/1234567-M.jpg',
-          id: '123457',
-          key: '1234567',
-          seed: ['book/1234567'],
-        },
-      ],
+      docs: [MOCKED_BOOKS],
     },
     loading: false,
     error: false,

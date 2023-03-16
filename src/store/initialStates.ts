@@ -1,21 +1,11 @@
-export const searchBooks = {
-    isLoading: false,
-    isSuccessful: false,
-    data: null,
-    error: null
-  };
-  
-  export const getSingleBook = {
-    isLoading: false,
-    isSuccessful: false,
-    data: null,
-    error: null
-  };
+import { INITIAL_STATES } from '../constants';
+export const searchBooks = INITIAL_STATES;
+export const getSingleBook = INITIAL_STATES;
 
-  export const booksToFav = {
-    data : []
-  }
+export const booksToFav = {
+  data: [],
+};
 
-  export const lastSearchedBooks = {
-    data : ""
-  }
+export const lastSearchedBooks = {
+  data: '',
+};
