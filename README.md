@@ -51,6 +51,7 @@ Build a simple web application that allows users to search for books using the O
 - TailwindCSS was used to style the application
 - Loader was added to the application
 - Data for favorites is persisted using redux-persist
+- Some Images where missing from the API so, I replaced a placeholder "no-image" pics
 
 ## No deep consideration was given to the following:
 
