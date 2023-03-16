@@ -1,11 +1,9 @@
 import { useState } from 'react';
-// components
 import { Box, Button, Drawer } from '@mui/material';
-import Favorites from '../Utilities/Favourites';
+import Favorites from '../Favourites';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { HomeWorkTwoTone, ClearAll } from '@mui/icons-material';
-// hooks
-import { useFavorites } from '../../hooks/useFavourite';
+import { useFavorites } from '../../hooks';
 import { useNavigate } from 'react-router-dom';
 
 export default function TemporaryDrawer() {
@@ -18,7 +16,7 @@ export default function TemporaryDrawer() {
   };
   const handleHome = () => {
     navigate('/');
-    setState({ ...state, ['right']: false });
+    setState({ ...state });
   };
 
   return (

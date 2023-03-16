@@ -2,7 +2,7 @@ import { Button, Card, CardActions, CardHeader } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { DeleteTwoTone } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-import { useFavorites } from '../../hooks/useFavourite';
+import { useFavorites } from '../../hooks';
 import { SearchedBooksType } from '../../Types';
 import { truncate } from '../../utils/helpers';
 
@@ -10,7 +10,6 @@ function BooksCard({
   title,
   author_name,
   coverImage,
-  key,
   id,
   deleteFav,
 }: SearchedBooksType & { deleteFav?: boolean }) {
@@ -36,7 +35,6 @@ function BooksCard({
                 title,
                 author_name,
                 coverImage,
-                key,
                 id,
                 cover_i: undefined,
                 seed: [],

@@ -1,15 +1,9 @@
-// Modules
-import { Stack, TextField, Button } from '@mui/material';
 import { useEffect, useState } from 'react';
-
-// Hooks
-import useSearchBooks from '../hooks/useSearchBooks';
-import { useLastSearchBook } from '../hooks/useLastSearchBook';
-
-// Components
+import { Stack, TextField, Button } from '@mui/material';
+import { useLastSearchBook, useSearchBooks } from '../hooks';
 import PaginationTor from './Pagination';
 
-function SearchInput({}: {}) {
+function SearchInput() {
   const { searchAllBooks, loading, books, success } = useSearchBooks();
   const { lastSearched, addBookToLastSearcheds } = useLastSearchBook();
   const [count, setCount] = useState(0);
@@ -22,21 +16,24 @@ function SearchInput({}: {}) {
     addBookToLastSearcheds(search);
   };
   const handleChange = (event: React.ChangeEvent<unknown>, pageNum: number) => {
+    event.preventDefault();
     setPage(pageNum);
     searchAllBooks(search, pageNum);
   };
 
   // hooks
   useEffect(() => {
-    if (lastSearched.length > 0) {
+    if (lastSearched?.length > 0) {
       setSearch(lastSearched);
     }
     searchAllBooks(search, page);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     if (success) {
       setCount(Math.ceil(books.numFound / 100));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [books]);
 
   return (
@@ -51,6 +48,11 @@ function SearchInput({}: {}) {
             variant="outlined"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter') {
+                handleSearch();
+              }
+            }}
           />
           <Button disabled={loading} variant="contained" onClick={handleSearch}>
             Search

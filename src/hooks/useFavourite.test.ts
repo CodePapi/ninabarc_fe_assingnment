@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import { useFavorites } from './useFavourite';
+import { useFavorites } from './';
 
 const mockDispatch = jest.fn();
 const mockUseSelector = jest.fn();
@@ -7,7 +7,9 @@ jest.mock('react-redux', () => ({
   useSelector: () => mockUseSelector,
   useDispatch: () => mockDispatch,
 }));
-
+jest.mock('axios', () => ({
+  get: jest.fn(() => Promise.resolve({ data: {} })),
+}));
 const book = {
   id: '1',
   author_name: ['author'],

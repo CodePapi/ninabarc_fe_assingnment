@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { Button, Container, CssBaseline } from '@mui/material';
-import useGetSingleBook from '../hooks/useGetSingBook';
 import ErrorOccurred from './Utilities/ErrorOccured';
 import PageLoader from './Utilities/PageLoader';
-import { useFavorites } from '../hooks/useFavourite';
+import { useFavorites, useGetSingleBook } from '../hooks';
 
 function SingleBookDetails() {
   const { getBook, book, loading, error } = useGetSingleBook();
@@ -17,11 +16,13 @@ function SingleBookDetails() {
     if (bookId) {
       getBook(bookId);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     if (bookId) {
       getBook(bookId);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bookId]);
 
   if (loading) {

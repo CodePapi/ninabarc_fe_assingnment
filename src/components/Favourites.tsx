@@ -1,5 +1,5 @@
-import { useFavorites } from '../../hooks/useFavourite';
-import BooksCard from './BooksCard';
+import { useFavorites } from '../hooks';
+import BooksCard from './Utilities/BooksCard';
 
 function Favorites() {
   const { favorites } = useFavorites();

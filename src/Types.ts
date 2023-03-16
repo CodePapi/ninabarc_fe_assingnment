@@ -8,7 +8,7 @@ export type SingleBookDetailsType = {
   title: string;
   author_name: string[];
   coverImage: string;
-  key: string;
+  key?: string;
   cover_i: any;
   seed?: string[];
   id?: string;
@@ -18,7 +18,7 @@ export type SearchedBooksType = {
   title: string;
   author_name: string[];
   coverImage: string;
-  key: string;
+  key?: string;
   cover_i: any;
   seed: string[];
   id?: string;

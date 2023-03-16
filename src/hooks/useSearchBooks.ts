@@ -3,8 +3,7 @@ import { searchBooks, searchBooksCleanup } from '../store/actions/searchBooks';
 import { useEffect } from 'react';
 import { DataStateType } from '../Types';
 
-
-const useSearchBooks = () => {
+export const useSearchBooks = () => {
   const dispatch = useDispatch();
 
   const { data, isSuccessful, error, isLoading } = useSelector(
@@ -19,16 +18,15 @@ const useSearchBooks = () => {
     return () => {
       dispatch(searchBooksCleanup());
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
   return {
     books: data ?? {
       docs: [],
     },
-    success: isSuccessful??false,
+    success: isSuccessful ?? false,
     error,
-    loading: isLoading??false,
+    loading: isLoading ?? false,
     searchAllBooks,
   };
 };
-
-export default useSearchBooks;

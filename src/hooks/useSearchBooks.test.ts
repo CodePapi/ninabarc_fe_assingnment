@@ -1,4 +1,4 @@
-import useSearchBooks from './useSearchBooks';
+import { useSearchBooks } from './';
 import { searchBooks } from '../store/actions/searchBooks';
 import { renderHook } from '@testing-library/react';
 

@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import useGetSingleBook from './useGetSingBook';
+import { useGetSingleBook } from './';
 
 const mockDispatch = jest.fn();
 const mockUseSelector = jest.fn();

@@ -9,9 +9,12 @@ jest.mock('react-router-dom', () => ({
   useHistory: jest.fn(),
   useNavigate: jest.fn(),
 }));
-
+jest.mock("axios", () => ({
+  get: jest.fn(() => Promise.resolve({ data: { results: [] } })),
+}));
 test('renders NavBar containing Home and Favs ', () => {
   render(<NavBar />);
   expect(screen.getByText(/Home/i)).toBeInTheDocument();
-  expect(screen.getByText(/Favs/i)).toBeInTheDocument();
+  expect(screen.getByText(/Favs /i)).toBeInTheDocument();
+  expect(screen.getByText(/Clear Favs/i)).toBeInTheDocument();
 });

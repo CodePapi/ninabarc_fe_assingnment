@@ -1,16 +1,12 @@
 import { Grid } from '@mui/material';
-
-// Components
 import BooksCard from './Utilities/BooksCard';
 import PageLoader from './Utilities/PageLoader';
 import ErrorOccurred from './Utilities/ErrorOccured';
 import NoBookFound from './Utilities/NoBookFound';
-import useSearchBooks from '../hooks/useSearchBooks';
-
-// Types
+import { useSearchBooks } from '../hooks';
 import { SearchedBooksType } from '../Types';
 
-function SearchedBooks({}: {}) {
+function SearchedBooks() {
   const { loading, books, error } = useSearchBooks();
 
   if (loading) {
@@ -21,12 +17,12 @@ function SearchedBooks({}: {}) {
     return <ErrorOccurred />;
   }
 
-  if (!loading  && books.docs.length === 0) {
+  if (!loading && books?.docs.length === 0) {
     return <NoBookFound />;
   }
   return (
     <Grid container spacing={4}>
-      {books.docs.map((book: SearchedBooksType) => (
+      {books?.docs.map((book: SearchedBooksType) => (
         <Grid item key={book.key} xs={12} sm={6} md={3}>
           <BooksCard
             title={book.title}
