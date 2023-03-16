@@ -56,3 +56,4 @@ Build a simple web application that allows users to search for books using the O
 - I did not consider the PR review process and the code review process because I did not want to give it so much attention considering it is just a test.
 - I did not consider adding a linter and prettier to the project because I did not want to give it so much attention considering it is just a test.
 - I did not consider adding environment variables to the project because no sensitive data is used in the project.
+- The API is so insconsistent and for that reason, it was not easy to get the book cover image from the single book API, I had to persist it using state from the Search books page
