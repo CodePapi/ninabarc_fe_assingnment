@@ -1,8 +1,8 @@
-## instructions: 
+## instructions:
 
 The interviewee should provide a GitHub repository containing the code for the application, along with instructions for running the application locally and running the tests. The repository should also include a README.md file with a brief overview of the application and any additional notes or comments the interviewee would like to provide.
 
-## Project: 
+## Project:
 
 Build a simple web application that allows users to search for books using the Open Library API and display the search results. Users should be able to select a book from the search results to view more details about the book.
 
@@ -54,3 +54,5 @@ Build a simple web application that allows users to search for books using the O
 
 - The types of some data returned from the API are not well defined and that cause the usage of the any type in several places.
 - I did not consider the PR review process and the code review process because I did not want to give it so much attention considering it is just a test.
+- I did not consider adding a linter and prettier to the project because I did not want to give it so much attention considering it is just a test.
+- I did not consider adding environment variables to the project because no sensitive data is used in the project.
