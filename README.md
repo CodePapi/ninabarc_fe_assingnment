@@ -1,6 +1,6 @@
 ## instructions:
 
-The interviewee should provide a GitHub repository containing the code for the application, along with instructions for running the application locally and running the tests. The repository should also include a README.md file with a brief overview of the application and any additional notes or comments the interviewee would like to provide.
+The GitHub repository contains the code for the application, along with instructions for running the application locally and running the tests. The repository should also include a README.md file with a brief overview of the application and any additional notes or comments the interviewee would like to provide.
 
 ## Project:
 
